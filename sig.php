@@ -58,6 +58,16 @@ $_name=str_replace(array(' TV ',' TV'), '', $_name);
 if($_name=='Hunter X Hunter') {
 	$_name='Hunter X Hunter (2011)';
 }
+if($_POST['ep']==='0' && substr($_name,-1)==='v') {
+	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
+		var_dump($matches);
+		$_POST['ep']=$matches[2];
+		$_name=$matches[1];
+	}
+}
+if($_name=='Red Data Girl') {
+	$_name='RDG: Red Data Girl';
+}
 $count_=0;
 //var_dump($_name);die();
 //$animes=search($_name,true);
