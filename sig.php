@@ -58,6 +58,12 @@ $_name=str_replace(array(' TV ',' TV'), '', $_name);
 if($_name=='Hunter X Hunter') {
 	$_name='Hunter X Hunter (2011)';
 }
+if($_name=='Oreimo' || $_name=='Oreimo S1') {
+	$_name='Ore no Imouto ga Konnani Kawaii Wake ga Nai';
+}
+if($_name=='Oreimo S2') {
+	$_name='Ore no Imouto ga Konnani Kawaii Wake ga Nai.';
+}
 if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
 		var_dump($matches);
