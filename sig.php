@@ -64,6 +64,9 @@ if($_name=='Oreimo' || $_name=='Oreimo S1') {
 if($_name=='Oreimo S2') {
 	$_name='Ore no Imouto ga Konnani Kawaii Wake ga Nai.';
 }
+if($_name=='Magi S2') {
+	$_name='Magi: The Kingdom of Magic';
+}
 if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
 		var_dump($matches);
