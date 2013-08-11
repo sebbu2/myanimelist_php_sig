@@ -1,9 +1,20 @@
 <?php
+$opts=array(
+        'http'=>array(
+                'user_agent'=>'Mozilla/5.0 (Windows NT 5.1; rv:26.0) Gecko/20100101 Firefox/26.0',
+        ),
+        'ssl'=>array(
+                'allow_self_signed'=>true,
+        ),
+);
+$opts['http']['header']='Cookie: incap_ses_133_81958=V+wUFqCC9lJwaAlk0IPYAT4w7VIAAAAAXfk7BsAg9/RgEB78ytKMdA==; incap_ses_84_81958=TjffdjVAiVIvzMicZm4qAT8w7VIAAAAAImVE1FgoeHBAMHh7RKT6zA==; visid_incap_81958=T4M05s5qQ+WUBSc/efL+uT4w7VIAAAAAQUIPAAAAAAC1KO5r+vuFsvNWD5lhKjXz'."\r\n";
+$ctx = stream_context_create($opts);
 function search($search,$debug=false,$retry=5) {
 	global $count_;
+	global $opts,$ctx;
 	$animes=array();
 	$a=0;
-	$data=file_get_contents('http://myanimelist.net/anime.php?q='.rawurlencode($search));
+	$data=file_get_contents('http://myanimelist.net/anime.php?q='.rawurlencode($search),false,$ctx);
 	echo __LINE__;var_dump(rawurlencode($search));
 
 start:
@@ -124,7 +135,7 @@ start:
 		if(count($matches)==2) {
 			//var_dump($matches[1]);die();
 			$a+=$nb;
-			$data=file_get_contents('http://myanimelist.net/anime.php'.$matches[1]);
+			$data=file_get_contents('http://myanimelist.net/anime.php'.$matches[1],false,$ctx);
 			goto start;
 		}
 	}
