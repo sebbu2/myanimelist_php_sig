@@ -67,6 +67,15 @@ if($_name=='Oreimo S2') {
 if($_name=='Magi S2') {
 	$_name='Magi: The Kingdom of Magic';
 }
+if($_name=='Yuushibu') {
+	$_name='Yuusha ni Narenakatta Ore wa Shibushibu Shuushoku wo Ketsui Shimashita.';
+}
+if($_name=='NouKome') {
+	$_name='Ore no Nounai Sentakushi ga, Gakuen Love Comedy wo Zenryoku de Jama Shiteiru';
+}
+if($_name=='D.C. I&II P.S.P. RE-ANIMATED OVA') {
+	$_name='Da Capo : D.C. I & II P.S.P. RE-ANIMATED OVA';
+}
 if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
 		var_dump($matches);
@@ -76,6 +85,12 @@ if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 }
 if($_name=='Red Data Girl') {
 	$_name='RDG: Red Data Girl';
+}
+if($_name=='Hamatora') {
+	$_name='Hamatora The Animation';
+}
+if($_name=='Seitokai Yakuindomo S2') {
+	$_name='Seitokai Yakuindomo*';
 }
 $count_=0;
 //var_dump($_name);die();
