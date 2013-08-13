@@ -92,6 +92,12 @@ if($_name=='Hamatora') {
 if($_name=='Seitokai Yakuindomo S2') {
 	$_name='Seitokai Yakuindomo*';
 }
+if($_name=='ImoCho - Another Shitty Sister Manga Adaptation') {
+	$_name='Saikin, Imouto no Yousu ga Chotto Okashiinda ga.';
+}
+if($_name=='ImoCho - Another Shitty Sister LN Adaptation') {
+	$_name='Saikin, Imouto no Yousu ga Chotto Okashiinda ga.';
+}
 $count_=0;
 //var_dump($_name);die();
 //$animes=search($_name,true);
