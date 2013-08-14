@@ -98,6 +98,9 @@ if($_name=='ImoCho - Another Shitty Sister Manga Adaptation') {
 if($_name=='ImoCho - Another Shitty Sister LN Adaptation') {
 	$_name='Saikin, Imouto no Yousu ga Chotto Okashiinda ga.';
 }
+if($_name=='Hamatora') {
+	$_name='Hamatora The Animation';
+}
 $count_=0;
 //var_dump($_name);die();
 //$animes=search($_name,true);
