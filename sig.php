@@ -89,7 +89,7 @@ if($_name=='Red Data Girl') {
 if($_name=='Hamatora') {
 	$_name='Hamatora The Animation';
 }
-if($_name=='Seitokai Yakuindomo S2') {
+if($_name=='Seitokai Yakuindomo S2' || $_name=='Seitokai Yakuindomo Bleep') {
 	$_name='Seitokai Yakuindomo*';
 }
 if($_name=='ImoCho - Another Shitty Sister Manga Adaptation') {
@@ -100,6 +100,9 @@ if($_name=='ImoCho - Another Shitty Sister LN Adaptation') {
 }
 if($_name=='Hamatora') {
 	$_name='Hamatora The Animation';
+}
+if($_name=='Niji-iro Prism Girl OVA') {
+	$_name='Nijiiro?Prism Girl';
 }
 $count_=0;
 //var_dump($_name);die();
