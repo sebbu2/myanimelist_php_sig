@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 /*
 Vars (what your script will receive): ($_POST)
 - user: your MAL username
@@ -47,12 +47,12 @@ if($_POST['name']=='Gintama\'') {
 }
 //var_dump($_POST['name']);die();
 $_name=$_POST['name'];
-$_name=str_replace(array('�', '³'), '3', $_name);//test
+$_name=str_replace(array('³', 'Â³'), '3', $_name);//test
 $_name=str_replace(array('&quot;', '&amp;quot;'), '"', $_name);//test
 
 $_name=str_replace('"', '', $_name);//test
 
-$_name=str_replace(array(chr(146), '�'), '’', $_name);//test
+$_name=str_replace(array(chr(146), '’'), 'â€™', $_name);//test
 $_name=str_replace(array(' TV ',' TV'), '', $_name);
 //$_name=str_replace(array(' PV ',' PV'), '', $_name);
 if($_name=='Hunter X Hunter') {
@@ -102,7 +102,7 @@ if($_name=='Hamatora') {
 	$_name='Hamatora The Animation';
 }
 if($_name=='Niji-iro Prism Girl OVA') {
-	$_name='Nijiiro?Prism Girl';
+	$_name='Nijiiro☆Prism Girl';
 }
 $count_=0;
 //var_dump($_name);die();
@@ -159,8 +159,8 @@ foreach($animes as $key=>$value) {
 	var_dump( mb_detect_encoding($_name,'auto') );//*/
 	$value['name']=mb_convert_encoding($value['name'], 'ISO-8859-1', mb_detect_encoding($value['name'],'UTF-8,ISO-8859-1,ISO-8859-15'));
 	$_name=@mb_convert_encoding($_name, 'ISO-8859-1', mb_detect_encoding($_name,'UTF-8,ISO-8859-1,ISO-8859-15'));//*/
-	$_name=str_replace(array('3', '³'), '�', $_name);//test
-	$_name=str_replace(array(chr(146),'’'), '�', $_name);//test
+	$_name=str_replace(array('3', 'Â³'), '³', $_name);//test
+	$_name=str_replace(array(chr(146),'â€™'), '’', $_name);//test
 	/*$value['name']=mb_convert_encoding($value['name'], 'ISO-8859-1', mb_detect_encoding($value['name'],$arr2));
 	$_name=@mb_convert_encoding($_name, 'ISO-8859-1', mb_detect_encoding($_name,$arr2));*/
 	echo __FILE__.':'.__LINE__;var_dump($_name,$value['name']);
