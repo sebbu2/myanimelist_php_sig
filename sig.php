@@ -55,6 +55,13 @@ $_name=str_replace('"', '', $_name);//test
 $_name=str_replace(array(chr(146), '’'), 'â€™', $_name);//test
 $_name=str_replace(array(' TV ',' TV'), '', $_name);
 //$_name=str_replace(array(' PV ',' PV'), '', $_name);
+if($_POST['ep']==='0' && substr($_name,-1)==='v') {
+	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
+		var_dump($matches);
+		$_POST['ep']=$matches[2];
+		$_name=$matches[1];
+	}
+}
 if($_name=='Hunter X Hunter') {
 	$_name='Hunter X Hunter (2011)';
 }
@@ -76,13 +83,6 @@ if($_name=='NouKome') {
 if($_name=='D.C. I&II P.S.P. RE-ANIMATED OVA') {
 	$_name='Da Capo : D.C. I & II P.S.P. RE-ANIMATED OVA';
 }
-if($_POST['ep']==='0' && substr($_name,-1)==='v') {
-	if(preg_match('/^(.+) ([0-9]+)v$/i', $_name, $matches)) {
-		var_dump($matches);
-		$_POST['ep']=$matches[2];
-		$_name=$matches[1];
-	}
-}
 if($_name=='Red Data Girl') {
 	$_name='RDG: Red Data Girl';
 }
@@ -103,6 +103,9 @@ if($_name=='Hamatora') {
 }
 if($_name=='Niji-iro Prism Girl OVA') {
 	$_name='Nijiiro☆Prism Girl';
+}
+if($_name=='Mushishi S2') {
+	$_name='Mushishi Zoku Shou';
 }
 $count_=0;
 //var_dump($_name);die();
