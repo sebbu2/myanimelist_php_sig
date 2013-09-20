@@ -107,6 +107,12 @@ if($_name=='Niji-iro Prism Girl OVA') {
 if($_name=='Mushishi S2') {
 	$_name='Mushishi Zoku Shou';
 }
+if($_name=='Mahouka') {
+	$_name='Mahouka Koukou no Rettousei';
+}
+if($_name=='ManAshi') {
+	$_name='Mangaka-san to Assistant-san to The Animation';
+}
 $count_=0;
 //var_dump($_name);die();
 //$animes=search($_name,true);
