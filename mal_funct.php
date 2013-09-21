@@ -70,9 +70,11 @@ start:
 			if($debug) echo "\r\n";
 			else $animes[$a+$i]=array();
 			$pos1=strpos($data,'<a href="http://myanimelist.net/anime/',$pos);
+			if($pos1===false) $pos1=strpos($data,'<a href="/anime/',$pos);
 			$pos1+=9;
 			$pos2=strpos($data,'"',$pos1);
 			$link=substr($data,$pos1,$pos2-$pos1);
+			if(substr($link,0,7)!='http://') $link='http://myanimelist.net'.$link;
 			if($debug) { echo __LINE__;var_dump($link); }
 			else $animes[$a+$i]['link']=$link;
 
