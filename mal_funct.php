@@ -1,13 +1,21 @@
 <?php
 $opts=array(
         'http'=>array(
-                'user_agent'=>'Mozilla/5.0 (Windows NT 5.1; rv:26.0) Gecko/20100101 Firefox/26.0',
+                'user_agent'=>'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:33.0) Gecko/20100101 Firefox/33.0',
         ),
         'ssl'=>array(
                 'allow_self_signed'=>true,
         ),
 );
-$opts['http']['header']='Cookie: incap_ses_133_81958=V+wUFqCC9lJwaAlk0IPYAT4w7VIAAAAAXfk7BsAg9/RgEB78ytKMdA==; incap_ses_84_81958=TjffdjVAiVIvzMicZm4qAT8w7VIAAAAAImVE1FgoeHBAMHh7RKT6zA==; visid_incap_81958=T4M05s5qQ+WUBSc/efL+uT4w7VIAAAAAQUIPAAAAAAC1KO5r+vuFsvNWD5lhKjXz'."\r\n";
+$opts['http']['header']='Cookie: '.
+'visitor_country=FR; '.
+'gn_country=US; '.
+'visid_incap_81958=pbEXRmbbSous/15TL6/n01BwP1QAAAAAQUIPAAAAAACyfcGV50uD2QD0QpUm/E1W; '.
+'incap_ses_258_81958=/JOSGT2hnUplfT3+xJmUA1FwP1QAAAAAuSILoxtjj4ELrMr4h1fhjg==; '.
+'incap_ses_32_81958=1jOAJaqwvVYTzAWARLFxABhxP1QAAAAAm/F+fsjGStRm//o2hwFKhg==; '.
+'__gads=ID=7c893b73ccfdbca8:T=1413443667:S=ALNI_MYeDycs21kipgzAiGQT3WWs9Q_haA; '.
+'noticeShown=true; '.
+"\r\n";
 $ctx = stream_context_create($opts);
 function search($search,$debug=false,$retry=5) {
 	global $count_;

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 /*
 Vars (what your script will receive): ($_POST)
 - user: your MAL username
@@ -39,6 +39,7 @@ if($_POST['name']===false||trim($_POST['name'])=='') {
 else {
 	file_put_contents('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu.txt','<?php'."\r\n".'$_POST='.var_export($_POST,true).';'."\r\n".'?>');
 }
+$useragent=trim(readfile('useragent.txt'));
 setlocale(LC_ALL, 'en_US.UTF8');
 require_once('mal_funct.php');
 $_POST['name']=str_replace('\\\'','\'',$_POST['name']);
@@ -52,6 +53,7 @@ $_name=str_replace(array('&quot;', '&amp;quot;'), '"', $_name);//test
 
 $_name=str_replace('"', '', $_name);//test
 
+$_name=str_replace(array(chr(226), '♥'), '♥', $_name);
 $_name=str_replace(array(chr(146), '’'), 'â€™', $_name);//test
 $_name=str_replace(array(' TV ',' TV'), '', $_name);
 //$_name=str_replace(array(' PV ',' PV'), '', $_name);
@@ -61,6 +63,12 @@ if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 		$_POST['ep']=$matches[2];
 		$_name=$matches[1];
 	}
+}
+if($_name=='Shirogane no Ishi: Argevollen') {
+	$_name='Argevollen';
+}
+if($_name=='Log Horizon 2nd Season') {
+	$_name='Log Horizon S2';
 }
 if($_name=='Hunter X Hunter') {
 	$_name='Hunter X Hunter (2011)';
@@ -112,6 +120,18 @@ if($_name=='Mahouka') {
 }
 if($_name=='ManAshi') {
 	$_name='Mangaka-san to Assistant-san to The Animation';
+}
+if($_POST['name']=='City Hunter 2') {
+	$_POST['ep']-=51;
+	assert($_POST['ep']<63);
+}
+if($_POST['name']=='City Hunter 3') {
+	$_POST['ep']-=(51+63);
+	assert($_POST['ep']<13);
+}
+if($_POST['name']=='City Hunter \'91') {
+	$_POST['ep']-=(51+63+13);
+	assert($_POST['ep']<13);
 }
 $count_=0;
 //var_dump($_name);die();
