@@ -5,8 +5,8 @@ ini_set('xdebug.var_display_max_data', -1);
 ini_set('xdebug.var_display_max_depth', -1);
 
 //file_put_contents( date('Y-m-d h-i-s').'.txt', var_export($_POST,true) );
-require_once('mal_funct.php');
-header('Content-Type: text/plain'."\r\n");
+//require_once('mal_funct.php');
+//header('Content-Type: text/plain'."\r\n");
 //$name='Princess Resurrection';
 //$name='Slayers Evolution-R';
 //$name='Honey and Clover';
