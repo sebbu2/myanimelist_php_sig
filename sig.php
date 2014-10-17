@@ -64,11 +64,11 @@ if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 		$_name=$matches[1];
 	}
 }
-if($_name=='Shirogane no Ishi: Argevollen') {
-	$_name='Argevollen';
+if($_name=='Argevollen') {
+	$_name='Shirogane no Ishi: Argevollen';
 }
-if($_name=='Log Horizon 2nd Season') {
-	$_name='Log Horizon S2';
+if($_name=='Log Horizon S2') {
+	$_name='Log Horizon 2nd Season';
 }
 if($_name=='Hunter X Hunter') {
 	$_name='Hunter X Hunter (2011)';
