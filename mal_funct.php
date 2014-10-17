@@ -8,7 +8,9 @@ $opts=array(
                 'allow_self_signed'=>true,
         ),
 );
-$opts['http']['header']='Cookie: '.
+$opts['http']['header']='';
+$opts['http']['header'].=$cred."\r\n";
+$opts['http']['header'].='Cookie: '.
 '__gads=ID=7c893b73ccfdbca8:T=1413443667:S=ALNI_MYeDycs21kipgzAiGQT3WWs9Q_haA; '.
 'incap_ses_258_81958=FW2+GtjMw214X3P+xJmUA3CBP1QAAAAAISU7VavQwD9Byb/x8XJopQ==; '.
 'incap_ses_32_81958=1jOAJaqwvVYTzAWARLFxABhxP1QAAAAAm/F+fsjGStRm//o2hwFKhg==; '.
