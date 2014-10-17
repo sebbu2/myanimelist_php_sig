@@ -1,4 +1,5 @@
 <?php
+require('cred.php');
 $opts=array(
         'http'=>array(
                 'user_agent'=>$useragent,
@@ -220,6 +221,41 @@ start:
 		$synopsis=trim(strip_tags(substr($data,$pos1,$pos2-$pos1)));
 		if($debug) { echo __LINE__;var_dump($synopsis); }
 		else $animes[$i]['synopsis']=$synopsis;
+	}
+	return $animes;
+}
+libxml_use_internal_errors(true);
+function search2($search, $debug=false, $retry=5) {
+	global $count_;
+	global $opts,$ctx;
+	$animes=array();
+	$a=0;
+	//$data=file_get_contents('http://myanimelist.net/anime.php?q='.rawurlencode($search),false,$ctx);
+	$data=file_get_contents('http://myanimelist.net/api/anime/search.xml?q='.rawurlencode($search),false,$ctx);
+	echo __LINE__;var_dump(rawurlencode($search));
+	$sxe = simplexml_load_string($data);
+	if($sxe===false) {
+		foreach(libxml_get_errors() as $error) {
+			echo "\t", $error->message.'<br/>';
+		}
+		die('error in reading xml');
+		return array();
+	}
+	$i=0;
+	foreach($sxe->entry as $anime) {
+		$animes[$i]=array();
+		$animes[$i]['link']='http://myanimelist.net/anime/'.$anime->id;
+		$animes[$i]['name']=$anime->title;
+		$animes[$i]['alternates']=explode(';', $anime->synonyms);
+		$animes[$i]['alternates']=array_map('trim', $animes[$i]['alternates']);
+		$animes[$i]['alternates']=array_map('html_entity_decode', $animes[$i]['alternates']);
+		$animes[$i]['alternates'][]=trim(html_entity_decode($anime->english));
+		//$animes[$i]['genre']='';//missing
+		$animes[$i]['synopsis']=$anime->synopsis;
+		$animes[$i]['type']=$anime->type;
+		$animes[$i]['eps']=$anime->episodes;
+		$animes[$i]['note']=$anime->score;
+		++$i;
 	}
 	return $animes;
 }
