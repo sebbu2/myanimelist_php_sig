@@ -235,18 +235,21 @@ function search2($search, $debug=false, $retry=5) {
 	//$data=file_get_contents('http://myanimelist.net/anime.php?q='.rawurlencode($search),false,$ctx);
 	$data=file_get_contents('http://myanimelist.net/api/anime/search.xml?q='.rawurlencode($search),false,$ctx);
 	echo __LINE__;var_dump(rawurlencode($search));
+	$data = html_entity_decode($data);
 	$sxe = simplexml_load_string($data);
+	//$sxe = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOENT);
 	if($sxe===false) {
 		foreach(libxml_get_errors() as $error) {
 			echo "\t", $error->message.'<br/>';
 		}
+		var_dump($data);
 		die('error in reading xml');
 		return array();
 	}
 	$i=0;
 	foreach($sxe->entry as $anime) {
 		$animes[$i]=array();
-		$animes[$i]['link']='http://myanimelist.net/anime/'.$anime->id;
+		$animes[$i]['link']='http://myanimelist.net/anime/'.(string)$anime->id;
 		$animes[$i]['name']=(string)$anime->title;
 		$animes[$i]['alternates']=explode(';', $anime->synonyms);
 		$animes[$i]['alternates']=array_map('trim', $animes[$i]['alternates']);

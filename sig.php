@@ -28,6 +28,7 @@ else {
 	die();
 }
 if($_POST['name']===false||trim($_POST['name'])=='') {
+	if(filesize('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu.txt')==82) die();
 	file_put_contents('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu1.txt','');
 	file_put_contents('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu2.txt','');
 	file_put_contents('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu3.txt','');
@@ -63,6 +64,9 @@ if($_POST['ep']==='0' && substr($_name,-1)==='v') {
 		$_POST['ep']=$matches[2];
 		$_name=$matches[1];
 	}
+}
+if($_name=='Ore Twintail ni Narimasu') {
+	$_name='Ore, Twintails ni Narimasu';
 }
 if($_name=='Argevollen') {
 	$_name='Shirogane no Ishi: Argevollen';
@@ -211,7 +215,7 @@ if( $id == -1 ) {
 if($_name===false) die();
 $link=$animes[$id]['link'];
 if(substr($link,-1)=='/') $link=substr($link,0,-1);
-$link=substr($link,0,strrpos($link,'/'));
+//$link=substr($link,0,strrpos($link,'/'));
 $fp=fopen('C:\Users\sebbu\AppData\Roaming\X-Chat 2\malu1.txt','w');
 fwrite($fp,'/me 04Watching: 12'.$animes[$id]['name'].' 03'.$_POST['ep'].'/'.$_POST['eptotal'].' 04Score: 06'.($_POST['score']==0?'?':$_POST['score']).'/10 15['.$animes[$id]['note'].'] 4Viewers: 13'.$_POST['viewers'].'/'.$_POST['totalplays'].' 04'.$link.' 02MAL Updater 2');
 fclose($fp);
