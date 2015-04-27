@@ -125,6 +125,9 @@ if($_name=='Mahouka') {
 if($_name=='ManAshi') {
 	$_name='Mangaka-san to Assistant-san to The Animation';
 }
+if($_name=='Yamada-kun and the Seven Witches') {
+	$_name='Yamada-kun to 7-nin no Majo';
+}
 if($_POST['name']=='City Hunter 2') {
 	$_POST['ep']-=51;
 	assert($_POST['ep']<63);
