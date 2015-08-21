@@ -47,6 +47,12 @@ $_POST['name']=str_replace('\\\'','\'',$_POST['name']);
 if($_POST['name']=='Gintama\'') {
 	$_POST['ep']-=201;
 }
+if($_POST['name']=='Gintama\': Enchousen') {
+	$_POST['ep']-=252;
+}
+if($_POST['name']=='Gintama°') {
+	$_POST['ep']-=265;
+}
 //var_dump($_POST['name']);die();
 $_name=$_POST['name'];
 $_name=str_replace(array('³', 'Â³'), '3', $_name);//test
@@ -127,6 +133,15 @@ if($_name=='ManAshi') {
 }
 if($_name=='Yamada-kun and the Seven Witches') {
 	$_name='Yamada-kun to 7-nin no Majo';
+}
+if($_name=='Denpa Kyoushi') {
+	$_name='Denpa Kyoushi (TV)';
+}
+if($_name=='GATE') {
+	$_name='GATE: Jieitai Kanochi nite, Kaku Tatakaeri';
+}
+if($_name=='Wakakao Zake') {
+	$_name='Wakako-zake';
 }
 if($_POST['name']=='City Hunter 2') {
 	$_POST['ep']-=51;
