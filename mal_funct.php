@@ -237,6 +237,7 @@ function search2($search, $debug=false, $retry=5) {
 	echo __LINE__;var_dump(rawurlencode($search));
 	$data = html_entity_decode($data); // decode normal entities &entity;
 	$data = html_entity_decode($data); // decode double entities &amp;entity;
+	$data = preg_replace('/&(?!amp;)/', '&amp;', $data);
 	$sxe = simplexml_load_string($data);
 	//$sxe = simplexml_load_string($data, 'SimpleXMLElement', LIBXML_NOENT);
 	if($sxe===false) {
